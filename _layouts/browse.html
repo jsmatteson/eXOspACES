@@ -1,0 +1,37 @@
+---
+layout: page 
+---
+{% assign items = site.data.metadata %}
+
+{{ content }}
+
+<div class="row mb-3 justify-content-center">
+    <div class="col-md-8 text-center">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control form-control-lg" id="quicksearch" placeholder="Filter ... " > 
+            <div class="input-group-append">
+                <button class="btn btn-success" type="button" title="Search" alt="Search" id="goButton" onclick="filterItems()">Search</button>
+                <a class="btn btn-outline-secondary filter" href="#" data-filter="">Reset</a>    
+            </div>
+        </div>
+        <span class="info2 h2"><span id="numberof">{{ items | size }}</span> of {{ items | size }} items</span>
+    </div>
+</div>
+
+<div class="row" id="browse-items">
+    {% for item in items %}
+    <div class="item col-md-6 col-sm-12 col-xs-12 mb-2" >
+        <a href="{{ '/browse/item.html' | absolute_url | append: '?id=' | append: item.indexid }}">
+            <img class="card-img-top lazy" {% if forloop.index < 20 %}src="https://img.youtube.com/vi/{{ item.indexid }}/0.jpg"{% else %}data-original="https://img.youtube.com/vi/{{ item.indexid }}/0.jpg"{% endif %} alt="collection object image">
+        </a>
+        <div class="card text-center">
+            <h3 class="card-title"><a href="{{ '/browse/item.html' | absolute_url | append: '?id=' | append: item.indexid }}" title="link to {{ item.title | escape }}">{{ item.title }}</a></h3>
+            <div class="row">
+                <div class="col-4"><img src="https://img.youtube.com/vi/{{ item.indexid }}/1.jpg" class="img-fluid"></div>
+                <div class="col-4"><img src="https://img.youtube.com/vi/{{ item.indexid }}/2.jpg" class="img-fluid"></div>
+                <div class="col-4"><img src="https://img.youtube.com/vi/{{ item.indexid }}/3.jpg" class="img-fluid"></div>
+            </div>
+         </div>
+    </div>
+    {% endfor %}
+</div>

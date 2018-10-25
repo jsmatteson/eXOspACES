@@ -20,3 +20,36 @@ theme idea:
 - https://github.com/wowthemesnet/template-pintereso-bootstrap-jekyll
 
 light gallery, http://sachinchoolur.github.io/lightGallery/demos/videos.html
+
+
+video modal:
+
+<!-- story box -->
+<div class="col-sm-6 stories d-flex justify-content-center align-items-center mb-3" id="story{{ story.id }}" >
+    <div class="" type="button" data-toggle="modal" data-target="#modal{{ story.id }}">
+        <img src="{{ '/assets/images/' | append: story.image | relative_url }}" alt="{{ story.county }} person" class="img-fluid" style="max-width: 400px;">
+    </div>
+</div>
+<!-- story modal -->
+<div class="modal fade" id="modal{{ story.id }}" tabindex="-1" role="dialog" aria-labelledby="modalTitle{{ story.id }}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle{{ story.id }}">{{ story.county }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {% if story.youtube %}
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ story.youtube }}?rel=0" allowfullscreen></iframe>
+                    </div>
+                {% else %}
+                <img class="img-fluid" src="{{ '/assets/images/' | append: story.image | relative_url }}" alt="{{ story.county }} person">
+                {% endif %}
+                <p>{{ story.story }}</p>
+            </div>
+        </div>
+    </div>
+</div>
