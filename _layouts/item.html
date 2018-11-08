@@ -3,30 +3,40 @@ layout: default
 ---
 
 <div class="container mt-2">
-    <ul class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ '/' | absolute_url }}">{{ site.title }}</a></li>
-        <li class="breadcrumb-item"><a href="{{ '/browse/' | absolute_url }}">Browse</a></li>
-        <li id="bc-title" class="breadcrumb-item active">Not found?</li>
-    </ul>
 
-    <div class="">
-        <h2 id="item-title" class="">{{ page.title }}</h2>
-    </div>
+    <div class="row mt-3 justify-content-center">
 
-    <div class="row mt-3">
-
-        <div class="col-md-4" >
-            <figure class="figure w-100 text-center p-3" id="item-image"></figure>
-            <div id="item-link" class="text-center my-2"></div>
-        </div>
         <div class="col-md-8">
+            <div class="" >
+                <figure data-toggle="modal" data-target="#modal" class="w-100 text-center p-3" id="item-image" style="cursor: pointer;"></figure>
+            </div>
+        
+            <div >
+                <h2 id="item-title" class="d-4">{{ page.title }}</h2>
+            </div>
+        
             <div id="item-metadata" class="metadata">
                 <h3>Sorry, item not found.</h3>
             </div>
         </div> 
     </div>
 
-    <div class="text-center">
-        <a class="btn btn-secondary" href="{{ '/browse/' | relative_url }}">&laquo; Back to Collection Browse</a>
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ '/' | absolute_url }}">{{ site.title }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ '/browse/' | absolute_url }}">Browse</a></li>
+        <li id="bc-title" class="breadcrumb-item active">Not found?</li>
+    </ul>
+
+</div>
+<!-- video modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="embed-responsive embed-responsive-16by9" id="item-link" >
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </div>
