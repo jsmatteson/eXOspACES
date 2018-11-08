@@ -1,5 +1,5 @@
 ---
-layout: home-infographic
+layout: home-quilt
 title: Home
 # add banner image to index page 
 banner-image: "https://img.youtube.com/vi/NStQCD0oHRU/0.jpg"

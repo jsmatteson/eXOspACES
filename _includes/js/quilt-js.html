@@ -1,0 +1,28 @@
+<script> 
+var thumbs = [ {% for c in site.data.metadata %}{%- for i in (0..3) -%}{ "id": "{{ c.filename }}", "title": "{{ c.title }}", "name": "/{{ i }}.jpg" }{%- unless forloop.last -%}, {%- endunless -%}{%- endfor -%}{%- unless forloop.last -%}, {%- endunless -%}{%- endfor -%}];
+var quilt = document.getElementById("lightgallery");
+thumbs.sort(function() { return 0.5 - Math.random() });
+var i;
+for (i=0; i < thumbs.length; i++) {
+    var item = '<div class="col-2 p-1"> <a class="gallery-img" href="https://www.youtube.com/watch?v=' + thumbs[i].id + '" > <img src="https://img.youtube.com/vi/' + thumbs[i].id + thumbs[i].name + '" > </a></div>';
+    quilt.innerHTML += item;
+}
+</script>
+<script src="{{ '/assets/js/jquery.mousewheel.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/lightgallery/js/lightgallery-all.min.js' | relative_url }}"></script>
+<script>
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery({
+            thumbnail: true,
+            animateThumb: false,
+            showThumbByDefault: false,
+            loadYoutubeThumbnail: false,
+            youtubePlayerParams: {
+                modestbranding: 1,
+                showinfo: 0,
+                rel: 0,
+                controls: 0
+            }
+        }); 
+    });
+</script>
