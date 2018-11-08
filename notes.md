@@ -53,3 +53,17 @@ video modal:
         </div>
     </div>
 </div>
+
+
+$(document).ready(function() {
+        $("#lightgallery").lightGallery({
+            selector: '.gallery-img',
+            loadYoutubeThumbnail:true,
+            youtubePlayerParams: {
+                modestbranding: 1,
+                showinfo: 0,
+                rel: 0,
+                controls: 0
+            }
+        }); 
+    });

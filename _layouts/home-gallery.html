@@ -1,0 +1,20 @@
+---
+layout: default
+gallery: true
+---
+<style>
+    #lightgallery img { width: 100%; }
+</style>
+<div class="container-fluid">
+
+    <div class="row" id="lightgallery">
+        {% for i in site.data.metadata %}
+        <div class="col-md-6">
+            <a class="gallery-img" href="https://www.youtube.com/watch?v={{ i.filename }}" >
+                <img src="https://img.youtube.com/vi/{{ i.filename }}/mqdefault.jpg" >
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>

@@ -4,10 +4,13 @@
     $(document).ready(function() {
         $("#lightgallery").lightGallery({
             selector: '.gallery-img',
-            thumbnail:true
+            //loadYoutubeThumbnail:true,
+            youtubePlayerParams: {
+                modestbranding: 1,
+                showinfo: 0,
+                rel: 0,
+                controls: 0
+            }
         }); 
     });
-    $(document).on('click', '#gallery-open', function(e) {
-    $(".gallery-img").first().trigger('click');
-});
 </script>
