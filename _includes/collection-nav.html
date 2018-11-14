@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar {% if page.layout == 'home-quilt' %}fixed-bottom{% endif %} navbar-expand-md navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{ '/' | absolute_url }}">{{ site.title }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#page-nav" aria-controls="page-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,6 +13,7 @@
                 </li>
                 {% endfor %}
             </ul>
+            {% unless page.layout == 'home-quilt' %}
             <script>
                 function site_search() {
                     var query = document.getElementById("site-search").value
@@ -29,7 +30,7 @@
                         </button>
                     </div>
                 </div>
-            </form>
+            </form>{% endunless %}
         </div>
     </div>
 </nav>
