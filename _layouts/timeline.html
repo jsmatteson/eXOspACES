@@ -1,35 +1,26 @@
 ---
 layout: page
 ---
-{%- if page.year-navigation -%}
-{%- assign navYears = page.year-navigation | split: ";" -%}
+{%- assign series = "TRANSLATIONS;eXOspACES;bonusROUND" | split: ";" -%}
+{%- assign items = site.data.metadata -%}
 <ul class="nav nav-pills float-right" id="year-nav">
   <li class="nav-item dropdown ">
-    <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Year</a>
+    <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Series</a>
     <div class="dropdown-menu">
-      {% for y in navYears %}
+      {% for y in series %}
       <a class="dropdown-item" href="#{{ y }}">{{ y }}</a>{% endfor %}
     </div>
   </li>
 </ul>
-{%- endif -%}
 
 {{ content }}
 
-{% assign items = site.data.metadata %}
-{% assign raw-dates = site.data.metadata | map: 'date' | compact%}
-{% capture clean-years %}{% for date in raw-dates %}{% if date contains "-" %}{{date | split: "-" | first }}{% elsif date contains "/" %}{{ date | split: "/" | last }}{% else %}{{ date }}{% endif %}{% unless forloop.last %};{% endunless %}{%- endfor -%}{% endcapture %}
-{%- assign years = clean-years | split: ";" | sort  -%}
-{%- assign uniqueYears = years | uniq | sort -%}
-
-<h3><a href="#{{ years | first }}">{{ years | first }}</a> to <a href="#{{ years | last }}">{{ years | last }}</a></h3>
-
 <table class="table table-striped">
-  {% for year in uniqueYears %}
+  {% for s in series %}
   <tr>
-    <th><h3 id="{{ year }}">{{ year }}</h2></th>
+    <th><h3 id="{{ s }}">{{ s }}</h3></th>
     <td><div class="row">
-    {% for item in items %}{% if item.date contains year %}
+    {% for item in items %}{% if item.collection contains s %}
     <div class="col-md-4"><a href="{{ '/browse/item.html' | relative_url | append: '?id=' | append: item.indexid }}" ><img class="lazy img-thumbnail m-1" data-original="https://img.youtube.com/vi/{{ item.filename }}/maxresdefault.jpg" alt="{{ item.title | escape }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | escape }} | {{ item.date | escape }}"/></a></div>
     {% endif %}{% endfor %}
     </div></td>
