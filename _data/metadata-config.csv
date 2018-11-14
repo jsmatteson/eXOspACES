@@ -2,11 +2,13 @@ field,display-name
 title,Item title
 creator,Creator
 date,Date Created
+collection,Series
 duration,Duration
 description,Description
-subject,Subjects
-filename,YouTube
 music,Music
+subject,Subjects
+gamederivedfrom,Game source
+gamelink,Game link
 homelink,Home site
 type,Type
 format,Format
