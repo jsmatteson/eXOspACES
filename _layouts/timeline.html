@@ -3,6 +3,7 @@ layout: page
 ---
 {%- assign series = "TRANSLATIONS;eXOspACES;bonusROUND" | split: ";" -%}
 {%- assign items = site.data.metadata -%}
+<style>.img-thumbnail { max-height: 200px; }</style>
 <ul class="nav nav-pills float-right" id="year-nav">
   <li class="nav-item dropdown ">
     <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Series</a>
@@ -21,7 +22,7 @@ layout: page
     <th><h3 id="{{ s }}">{{ s }}</h3></th>
     <td><div class="row">
     {% for item in items %}{% if item.collection contains s %}
-    <div class="col-md-4"><a href="{{ '/browse/item.html' | relative_url | append: '?id=' | append: item.indexid }}" ><img class="lazy img-thumbnail m-1" data-original="https://img.youtube.com/vi/{{ item.filename }}/maxresdefault.jpg" alt="{{ item.title | escape }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | escape }} | {{ item.date | escape }}"/></a></div>
+    <div class="col-md-4"><a href="{{ '/browse/item.html' | relative_url | append: '?id=' | append: item.indexid }}" ><img class="lazy img-thumbnail m-1" data-original="{% if item.format contains 'video' %}https://img.youtube.com/vi/{{ item.filename }}/maxresdefault.jpg{% else %}{{ item.filename }}{% endif %}" alt="{{ item.title | escape }}" data-toggle="tooltip" data-placement="bottom" title="{{ item.title | escape }} | {{ item.date | escape }}"/></a></div>
     {% endif %}{% endfor %}
     </div></td>
   </tr>
