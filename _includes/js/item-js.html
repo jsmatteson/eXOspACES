@@ -12,7 +12,7 @@ document.getElementById("bc-title").innerHTML = itemTitle;
 document.getElementById("item-title").innerHTML = itemTitle;
 var itemImage = '<img class="img-fluid" src="' + record.filename + '" alt="item thumbnail">';
 document.getElementById("item-image").innerHTML = itemImage;
-var itemLink = '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + record.filename + '?rel=0" allowfullscreen></iframe>';
+var itemLink = '<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + queryString + '?rel=0" allowfullscreen></iframe>';
 document.getElementById("item-link").innerHTML = itemLink;
 var fields = '<table class="table">' + {% for f in fields %}'<tr><th scope="row" class="field">{{ f.display-name }}:</th> <td class="field-value">' + record.{{ f.field }} + '</td></tr>' + {% endfor %}'</table>';
 document.getElementById("item-metadata").innerHTML = fields;
