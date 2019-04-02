@@ -10,7 +10,7 @@
     <main role="main">
     {{ content }}
     </main>
-    {% include footer.html %}
+    {% unless page.layout == "home-quilt" %}{% include footer.html %}{% endunless %}
     {% include foot.html %}
   </body>
 

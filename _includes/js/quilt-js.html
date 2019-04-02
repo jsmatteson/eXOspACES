@@ -5,7 +5,7 @@ var quilt = document.getElementById("lightgallery");
 thumbs.sort(function() { return 0.5 - Math.random() });
 var i;
 for (i=0; i < thumbs.length; i++) {
-    var item = '<div class="col-2 p-1"> <a class="gallery-img" href="https://www.youtube.com/watch?v=' + thumbs[i].id + '" > <img src="https://img.youtube.com/vi/' + thumbs[i].id + thumbs[i].name + '" > </a></div>';
+    var item = '<div class="col-3 col-md-2 p-0"> <a class="gallery-img" href="https://www.youtube.com/watch?v=' + thumbs[i].id + '" > <img src="https://img.youtube.com/vi/' + thumbs[i].id + thumbs[i].name + '" alt="' + thumbs[i].title + '" > </a></div>';
     quilt.innerHTML += item;
 }
 </script>
