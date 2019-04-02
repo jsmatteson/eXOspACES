@@ -20,6 +20,11 @@ to encourage reflection in reflexive times<br>
 as an introspective aesthetic experience<br>
 by a Visual Musician who wants to see additive algorithms outlawed
 
-# {{ site.title }} [Jonathan S Matteson](http://jsmatteson.com)
+# {{ site.title }}
 
-{% include credits.md %}
+<div class="text-center">
+<h1><a href="http://jsmatteson.com" target="_blank">Jonathan S Matteson</a></h1>
+<a href="https://www.youtube.com/channel/UCVbXX2thOYnqZUozkIbawhQ)" target="_blank" class="btn btn-lg btn-primary m-3">YouTube</a>
+<a href="https://www.twitch.tv/jsmatteson" target="_blank" class="btn btn-lg btn-primary m-3">Twitch</a>
+</div>
+
