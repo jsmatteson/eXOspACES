@@ -1,5 +1,7 @@
 # eXOspACES
 
+digital exhibit catalog 2019, https://jsmatteson.github.io/eXOspACES/
+
 http://jsmatteson.com/
 
 https://www.twitch.tv/jsmatteson
